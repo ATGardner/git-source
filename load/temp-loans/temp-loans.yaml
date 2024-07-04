@@ -12,7 +12,7 @@ spec:
     targetRevision: main
   destination:
     name: in-cluster
-    namespace: qa
+    namespace: qa2
   syncPolicy:
     automated:
       prune: true
