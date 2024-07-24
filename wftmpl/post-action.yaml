@@ -5,6 +5,7 @@ metadata:
   annotations:
     codefresh.io/workflow-origin: promotion
 spec:
+  serviceAccountName: post-action-sa
   arguments:
     parameters:
     - name: APP_NAMESPACE
