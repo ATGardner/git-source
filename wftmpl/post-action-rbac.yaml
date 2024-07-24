@@ -24,6 +24,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: post-action-sa
+  namespace: default
 
 ---
 
