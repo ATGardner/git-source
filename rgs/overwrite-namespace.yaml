@@ -8,9 +8,9 @@ metadata:
 spec:
   project: hulk-team
   source:
-    path: overwrite-namespace
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: HEAD
+    path: overwrite-namespace
   destination:
     name: in-cluster
     namespace: hulk-team-zone

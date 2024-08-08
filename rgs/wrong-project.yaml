@@ -7,9 +7,9 @@ metadata:
 spec:
   project: default # <-- illeagal project
   source:
-    path: wrong-project
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: HEAD
+    path: wrong-project
   destination:
     name: in-cluster
     namespace: hulk-team-zone

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: sleep
+  annotations:
+    codefresh.io/workflow-origin: promotion
+spec:
+  entrypoint: sleep
+  templates:
+  - name: sleep
+    script:
+      image: alpine
+      command:
+      - sh
+      source: |
+        echo "before"
+        sleep 60
+        echo "after"
+ 

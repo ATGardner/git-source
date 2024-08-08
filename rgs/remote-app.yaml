@@ -7,9 +7,9 @@ metadata:
 spec:
   project: default
   source:
-    path: good-app
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: HEAD
+    path: good-app
   destination:
     name: daniel
     namespace: from-noam

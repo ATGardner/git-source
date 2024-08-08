@@ -10,9 +10,9 @@ metadata:
 spec:
   project: default
   source:
-    path: loans-apps/qa
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: main
+    path: loans-apps/qa
   destination:
     name: in-cluster
     namespace: qa

@@ -7,9 +7,9 @@ metadata:
 spec:
   project: hulk-team
   source:
-    path: wrong-dest-ns
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: HEAD
+    path: wrong-dest-ns
   destination:
     name: in-cluster
     namespace: runtime # <-- illeagal namespace

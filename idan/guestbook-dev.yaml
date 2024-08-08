@@ -9,9 +9,9 @@ metadata:
 spec:
   project: default
   source:
-    path: helm-guestbook
     repoURL: https://github.com/idan-codefresh/argocd-example-apps.git
     targetRevision: HEAD
+    path: helm-guestbook
   destination:
     name: in-cluster
     namespace: idan-dev

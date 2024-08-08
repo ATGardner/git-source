@@ -1,18 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: good-app #
+  name: rel-staging
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
+  labels:
+    codefresh.io/product: rel
+    env: staging
 spec:
-  project: hulk-team #
+  project: default
   source:
-    repoURL: https://github.com/ATGardner/git-source.git #
-    targetRevision: HEAD #
-    path: good-app #
+    repoURL: https://github.com/ATGardner/git-source.git
+    targetRevision: main
+    path: rel-apps/staging/chart
   destination:
     name: in-cluster
-    namespace: hulk-team-zone #
+    namespace: staging
   syncPolicy:
     automated:
       prune: true
