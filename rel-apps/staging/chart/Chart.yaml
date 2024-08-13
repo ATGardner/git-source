@@ -4,6 +4,6 @@ description: Codefresh gitops runtime umbrella chart
 name: rel-base
 version: 1.0.0
 dependencies:
-- name: loans
-  repository: oci://quay.io/codefresh/promotions-demo/charts
-  version: 1.0.0
+  - name: loans
+    repository: oci://quay.io/codefresh/promotions-demo/charts
+    version: 1.0.0
