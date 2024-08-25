@@ -2,8 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   name: sleep
-  annotations:
-    codefresh.io/workflow-origin: promotion
 spec:
   entrypoint: sleep
   templates:
