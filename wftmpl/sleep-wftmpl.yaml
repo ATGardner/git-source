@@ -3,6 +3,7 @@ kind: WorkflowTemplate
 metadata:
   name: sleep
 spec:
+  serviceAccountName: pre-action-sa
   entrypoint: sleep
   templates:
   - name: sleep
