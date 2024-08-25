@@ -13,6 +13,6 @@ spec:
       - sh
       source: |
         echo "before"
-        sleep 60
+        sleep 5
         echo "after"
  
