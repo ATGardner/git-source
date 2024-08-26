@@ -8,7 +8,7 @@ spec:
   templates:
   - name: sleep
     script:
-      image: alpine
+      image: quay.io/noam_codefresh/curl-base:8.9.1
       command:
       - sh
       source: |
