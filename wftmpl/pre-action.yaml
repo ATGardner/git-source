@@ -4,6 +4,7 @@ metadata:
   name: pre-action
   annotations:
     codefresh.io/workflow-origin: promotion
+    codefresh.io/promotion-stage: pre-action
 spec:
   serviceAccountName: pre-action-sa
   entrypoint: pre-action

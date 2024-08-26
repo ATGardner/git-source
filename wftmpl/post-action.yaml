@@ -4,6 +4,7 @@ metadata:
   name: post-action
   annotations:
     codefresh.io/workflow-origin: promotion
+    codefresh.io/promotion-stage: post-action
 spec:
   serviceAccountName: post-action-sa
   arguments:
@@ -11,11 +12,8 @@ spec:
     - name: APP_NAMESPACE
     - name: APP_NAME
     - name: REPO_URL
-      value: ""
     - name: BRANCH
-      value: ""
     - name: PATH
-      value: ""
     - name: COMMIT_SHA
       value: ""
     - name: COMMIT_MESSAGE
