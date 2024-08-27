@@ -4,8 +4,9 @@ metadata:
   name: loans-staging
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
-  labels:
+  annotations:
     codefresh.io/product: loans
+  labels:
     env: staging
 spec:
   project: default

@@ -4,8 +4,9 @@ metadata:
   name: rollout-production-west
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
-  labels:
+  annotations:
     codefresh.io/product: rollout
+  labels:
     env: production
 spec:
   project: default
