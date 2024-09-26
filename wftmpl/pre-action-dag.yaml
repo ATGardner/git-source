@@ -35,15 +35,15 @@ spec:
         depends: "suspend"
         parameters:
         - name: APP_NAMESPACE
-          value: {{ inputs.parameters.APP_NAMESPACE }}
+          value: "{{ inputs.parameters.APP_NAMESPACE }}"
         - name: APP_NAME
-          value: {{ inputs.parameters.APP_NAME }}
+          value: "{{ inputs.parameters.APP_NAME }}"
         - name: REPO_URL
-          value: {{ inputs.parameters.REPO_URL }}
+          value: "{{ inputs.parameters.REPO_URL }}"
         - name: BRANCH
-          value: {{ inputs.parameters.BRANCH }}
+          value: "{{ inputs.parameters.BRANCH }}"
         - name: PATH
-          value: {{ inputs.parameters.PATH }}
+          value: "{{ inputs.parameters.PATH }}"
 
   - name: pre-suspend
     script:
