@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: pre-action
+  name: pre-action-dag
   annotations:
     codefresh.io/workflow-origin: promotion
     codefresh.io/promotion-stage: pre-action
 spec:
   serviceAccountName: pre-action-sa
-  entrypoint: pre-action
+  entrypoint: dag
   arguments:
     parameters:
     - name: APP_NAMESPACE
@@ -16,7 +16,47 @@ spec:
     - name: BRANCH
     - name: PATH
   templates:
-  - name: pre-action
+  - name: dag
+    inputs:
+      parameters:
+      - name: APP_NAMESPACE
+      - name: APP_NAME
+      - name: REPO_URL
+      - name: BRANCH
+      - name: PATH
+    dag:
+      tasks:
+      - name: pre-suspend
+
+      - name: suspend
+        depends: "pre-suspend"
+
+      - name: after-suspend
+        depends: "suspend"
+        parameters:
+        - name: APP_NAMESPACE
+          value: {{ inputs.parameters.APP_NAMESPACE }}
+        - name: APP_NAME
+          value: {{ inputs.parameters.APP_NAME }}
+        - name: REPO_URL
+          value: {{ inputs.parameters.REPO_URL }}
+        - name: BRANCH
+          value: {{ inputs.parameters.BRANCH }}
+        - name: PATH
+          value: {{ inputs.parameters.PATH }}
+
+  - name: pre-suspend
+    script:
+      image: alpine:3.20
+      command:
+      - sh
+      source: |
+        echo "pre suspend"
+
+  - name: suspend
+    suspend: {}
+
+  - name: after-suspend
     inputs:
       parameters:
       - name: APP_NAMESPACE
