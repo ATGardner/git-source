@@ -36,17 +36,18 @@ spec:
       - name: after-suspend
         depends: "suspend"
         template: after-suspend-tmpl
-        parameters:
-        - name: APP_NAMESPACE
-          value: "{{ inputs.parameters.APP_NAMESPACE }}"
-        - name: APP_NAME
-          value: "{{ inputs.parameters.APP_NAME }}"
-        - name: REPO_URL
-          value: "{{ inputs.parameters.REPO_URL }}"
-        - name: BRANCH
-          value: "{{ inputs.parameters.BRANCH }}"
-        - name: PATH
-          value: "{{ inputs.parameters.PATH }}"
+        arguments:
+          parameters:
+          - name: APP_NAMESPACE
+            value: "{{ inputs.parameters.APP_NAMESPACE }}"
+          - name: APP_NAME
+            value: "{{ inputs.parameters.APP_NAME }}"
+          - name: REPO_URL
+            value: "{{ inputs.parameters.REPO_URL }}"
+          - name: BRANCH
+            value: "{{ inputs.parameters.BRANCH }}"
+          - name: PATH
+            value: "{{ inputs.parameters.PATH }}"
 
   - name: pre-suspend-tmpl
     script:
