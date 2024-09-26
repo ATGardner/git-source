@@ -27,12 +27,15 @@ spec:
     dag:
       tasks:
       - name: pre-suspend
+        template: pre-suspend-tmpl
 
       - name: suspend
         depends: "pre-suspend"
+        template: suspend-tmpl
 
       - name: after-suspend
         depends: "suspend"
+        template: after-suspend-tmpl
         parameters:
         - name: APP_NAMESPACE
           value: "{{ inputs.parameters.APP_NAMESPACE }}"
@@ -45,7 +48,7 @@ spec:
         - name: PATH
           value: "{{ inputs.parameters.PATH }}"
 
-  - name: pre-suspend
+  - name: pre-suspend-tmpl
     script:
       image: alpine:3.20
       command:
@@ -53,10 +56,10 @@ spec:
       source: |
         echo "pre suspend"
 
-  - name: suspend
+  - name: suspend-tmpl
     suspend: {}
 
-  - name: after-suspend
+  - name: after-suspend-tmpl
     inputs:
       parameters:
       - name: APP_NAMESPACE
