@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: pre-action-dag
+  name: post-action-dag
   annotations:
     codefresh.io/workflow-origin: promotion
-    codefresh.io/promotion-stage: pre-action
+    codefresh.io/promotion-stage: post-action
 spec:
-  serviceAccountName: pre-action-sa
+  serviceAccountName: post-action-sa
   entrypoint: dag
   arguments:
     parameters:
@@ -15,6 +15,14 @@ spec:
     - name: REPO_URL
     - name: BRANCH
     - name: PATH
+    - name: COMMIT_SHA
+      value: ""
+    - name: COMMIT_MESSAGE
+      value: ""
+    - name: COMMIT_AUTHOR
+      value: ""
+    - name: COMMIT_DATE
+      value: ""
   templates:
   - name: dag
     inputs:
@@ -52,6 +60,14 @@ spec:
             value: "{{ inputs.parameters.BRANCH }}"
           - name: PATH
             value: "{{ inputs.parameters.PATH }}"
+          - name: COMMIT_SHA
+            value: "{{ inputs.parameters.COMMIT_SHA }}"
+          - name: COMMIT_MESSAGE
+            value: "{{ inputs.parameters.COMMIT_MESSAGE }}"
+          - name: COMMIT_AUTHOR
+            value: "{{ inputs.parameters.COMMIT_AUTHOR }}"
+          - name: COMMIT_DATE
+            value: "{{ inputs.parameters.COMMIT_DATE }}"
 
   - name: pre-suspend-tmpl
     script:
@@ -82,6 +98,10 @@ spec:
       - name: REPO_URL
       - name: BRANCH
       - name: PATH
+      - name: COMMIT_SHA
+      - name: COMMIT_MESSAGE
+      - name: COMMIT_AUTHOR
+      - name: COMMIT_DATE
     outputs:
       parameters:
       - name: RESULT
@@ -93,6 +113,14 @@ spec:
       command:
       - sh
       source: |
-        echo "pre action for \"{{ inputs.parameters.APP_NAMESPACE }}/{{ inputs.parameters.APP_NAME }}\""
+        converted_date=$(date -d "{{ inputs.parameters.COMMIT_DATE }}" +"%a %b %d %H:%M:%S %Y %z")
+        echo "post action for \"{{ inputs.parameters.APP_NAMESPACE }}/{{ inputs.parameters.APP_NAME }}\""
         echo "repoUrl: {{ inputs.parameters.REPO_URL }}, branch: {{ inputs.parameters.BRANCH }}, path: {{ inputs.parameters.PATH }}"
-        echo "{\"PRE_ACTION_RESULT\": "\Success\""}" > /tmp/result
+        echo ""
+        echo "commit {{ inputs.parameters.COMMIT_SHA }}"
+        echo "Author: {{ inputs.parameters.COMMIT_AUTHOR }}"
+        echo "Date:   ${converted_date}"
+        echo ""
+        echo "    {{ inputs.parameters.COMMIT_MESSAGE }}"
+        echo ""
+        echo "{\"POST_ACTION_RESULT\": "\Success\""}" > /tmp/result
