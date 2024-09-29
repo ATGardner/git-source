@@ -33,8 +33,12 @@ spec:
         depends: "pre-suspend"
         template: suspend-tmpl
 
-      - name: after-suspend
+      - name: sleep
         depends: "suspend"
+        template: sleep-tmpl
+
+      - name: after-suspend
+        depends: "sleep"
         template: after-suspend-tmpl
         arguments:
           parameters:
@@ -59,6 +63,16 @@ spec:
 
   - name: suspend-tmpl
     suspend: {}
+
+  - name: sleep
+    script:
+      image: alpine:3.20
+      command:
+      - sh
+      source: |
+        echo "before"
+        sleep 60
+        echo "after"
 
   - name: after-suspend-tmpl
     inputs:
