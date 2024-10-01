@@ -32,6 +32,10 @@ spec:
       - name: REPO_URL
       - name: BRANCH
       - name: PATH
+      - name: COMMIT_SHA
+      - name: COMMIT_MESSAGE
+      - name: COMMIT_AUTHOR
+      - name: COMMIT_DATE
     dag:
       tasks:
       - name: pre-suspend
