@@ -71,7 +71,7 @@ spec:
       - sh
       source: |
         echo "before"
-        sleep 30
+        sleep 5
         echo "after"
 
   - name: echo-tmpl
