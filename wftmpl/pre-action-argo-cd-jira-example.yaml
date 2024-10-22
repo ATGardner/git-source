@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: pre-action-argo-cd-example
+  name: pre-action-argo-cd-jira-example
   annotations:
     codefresh.io/workflow-origin: promotion
     codefresh.io/promotion-stage: pre-action
@@ -26,12 +26,12 @@ spec:
       - name: PATH
     dag:
       tasks:
-      - name: pre-suspend
+      - name: argocd-get
         template: argocd-get-tmpl
         arguments:
           parameters:
           - name: ARGOCD_SERVER
-            value: argo-cd-server:80 # or whatever name you end up using
+            value: argo-cd-server:80 # or whatever service name you end up using
           - name: APP_NAME
             value: "{{ inputs.parameters.APP_NAME }}"
           - name: TOKEN_SECRET
@@ -39,29 +39,13 @@ spec:
           - name: TOKEN_SECRET_KEY
             value: token
 
-      - name: suspend
-        depends: "pre-suspend"
-        template: suspend-tmpl
-
-      # - name: sleep
-      #   depends: "suspend"
-      #   template: sleep-tmpl
-
-      - name: echo
-        depends: "suspend"
-        template: echo-tmpl
+      - name: jira-create-ticket
+        depends: "argocd-get"
+        template: jira-create-ticket-tmpl
         arguments:
           parameters:
-          - name: APP_NAMESPACE
-            value: "{{ inputs.parameters.APP_NAMESPACE }}"
-          - name: APP_NAME
-            value: "{{ inputs.parameters.APP_NAME }}"
-          - name: REPO_URL
-            value: "{{ inputs.parameters.REPO_URL }}"
-          - name: BRANCH
-            value: "{{ inputs.parameters.BRANCH }}"
-          - name: PATH
-            value: "{{ inputs.parameters.PATH }}"
+          - name: APP_MANIFEST
+            value: "{{ tasks['argocd-get'].outputs.parameters.APP_MANIFEST }}"
 
   - name: argocd-get-tmpl
     inputs:
@@ -74,8 +58,8 @@ spec:
         default: token
     outputs:
       parameters:
-      - name: RESULT
-        globalName: RESULT
+      - name: APP_MANIFEST
+        # globalName: APP_MANIFEST # optional - any global output will reach the post-action as well
         valueFrom:
           path: /tmp/result.json
     script:
@@ -98,38 +82,21 @@ spec:
       source: |
         argocd app get ${APP_NAME} --output json > /tmp/result.json
 
-  - name: suspend-tmpl
-    suspend: {}
-
-  - name: sleep-tmpl
-    script:
-      image: alpine:3.20
-      command:
-      - sh
-      source: |
-        echo "before"
-        sleep 5
-        echo "after"
-
-  - name: echo-tmpl
+  - name: jira-create-ticket-tmpl
     inputs:
       parameters:
-      - name: APP_NAMESPACE
-      - name: APP_NAME
-      - name: REPO_URL
-      - name: BRANCH
-      - name: PATH
+      - name: APP_MANIFEST
     outputs:
       parameters:
       - name: RESULT
+        globalName: JIRA_ID
         valueFrom:
-          path: /tmp/result
-        globalName: ECHO_RESULT
+          path: /tmp/JIRA_ID
     script:
       image: alpine:3.20
       command:
       - sh
       source: |
-        echo "pre action for \"{{ inputs.parameters.APP_NAMESPACE }}/{{ inputs.parameters.APP_NAME }}\""
-        echo "repoUrl: {{ inputs.parameters.REPO_URL }}, branch: {{ inputs.parameters.BRANCH }}, path: {{ inputs.parameters.PATH }}"
-        echo "{\"PRE_ACTION_RESULT\": "\Success\""}" > /tmp/result
+        echo "create jira ticket with data from the inputs.prameters.APP_MANIFEST"
+        sleep 5
+        echo "JIRA-ticet-id" > /tmp/JIRA_ID
