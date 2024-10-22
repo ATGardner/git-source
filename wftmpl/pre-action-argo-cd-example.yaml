@@ -75,7 +75,7 @@ spec:
     outputs:
       parameters:
       - name: RESULT
-        globalName: APP_RESULT
+        globalName: RESULT
         valueFrom:
           path: /tmp/result.json
     script:
@@ -97,7 +97,6 @@ spec:
       - sh
       source: |
         argocd app get ${APP_NAME} --output json > /tmp/result.json
-
 
   - name: suspend-tmpl
     suspend: {}
@@ -125,7 +124,7 @@ spec:
       - name: RESULT
         valueFrom:
           path: /tmp/result
-        globalName: RESULT
+        globalName: ECHO_RESULT
     script:
       image: alpine:3.20
       command:
