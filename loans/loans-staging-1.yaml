@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: loans-staging
+  name: loans-staging-1
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
@@ -13,10 +13,10 @@ spec:
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: main
-    path: loans-apps/staging
+    path: loans-apps/staging-1
   destination:
     name: in-cluster
-    namespace: staging
+    namespace: staging-1
   syncPolicy:
     automated:
       prune: true

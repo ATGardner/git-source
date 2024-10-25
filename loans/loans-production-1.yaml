@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: loans-production-east
+  name: loans-production-1
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
@@ -13,10 +13,10 @@ spec:
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: main
-    path: loans-apps/production-east
+    path: loans-apps/production-1
   destination:
     name: in-cluster
-    namespace: production-east
+    namespace: production-1
   syncPolicy:
     automated:
       prune: true
