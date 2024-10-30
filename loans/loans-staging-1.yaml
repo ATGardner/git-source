@@ -17,7 +17,7 @@ spec:
   destination:
     name: in-cluster
     namespace: staging-1
-  # syncPolicy:
+  syncPolicy: {}
   #   automated:
   #     prune: true
   #     selfHeal: true
