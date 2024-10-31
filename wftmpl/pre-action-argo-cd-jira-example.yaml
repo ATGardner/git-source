@@ -99,4 +99,5 @@ spec:
       source: |
         echo "create jira ticket with data from the inputs.prameters.APP_MANIFEST"
         sleep 5
-        echo "JIRA-ticet-id" > /tmp/JIRA_ID
+        RANDOM_HASH=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13)
+        echo "JIRA-ticket-id-${RANDOM_HASH}" > /tmp/JIRA_ID
