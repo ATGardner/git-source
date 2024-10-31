@@ -24,12 +24,6 @@ spec:
       - name: REPO_URL
       - name: BRANCH
       - name: PATH
-    outputs:
-      parameters:
-      - name: RESULT
-        valueFrom:
-          path: /tmp/result
-        globalName: RESULT
     script:
       image: alpine:3.20
       command:
@@ -37,4 +31,3 @@ spec:
       source: |
         echo "pre action for \"{{ inputs.parameters.APP_NAMESPACE }}/{{ inputs.parameters.APP_NAME }}\""
         echo "repoUrl: {{ inputs.parameters.REPO_URL }}, branch: {{ inputs.parameters.BRANCH }}, path: {{ inputs.parameters.PATH }}"
-        echo "{\"PRE_ACTION_RESULT\": "\Success\""}" > /tmp/result
