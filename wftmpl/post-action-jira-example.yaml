@@ -23,7 +23,7 @@ spec:
       value: ""
     - name: COMMIT_DATE
       value: ""
-    - name: parameters
+    - name: JIRA_ID
   templates:
   - name: dag
     inputs:
@@ -37,15 +37,15 @@ spec:
       - name: COMMIT_MESSAGE
       - name: COMMIT_AUTHOR
       - name: COMMIT_DATE
-      - name: parameters
+      - name: JIRA_ID
     dag:
       tasks:
       - name: jira-close
         template: jira-close-tmpl
         arguments:
           parameters:
-          - name: parameters
-            value: "{{ inputs.parameters.parameters }}"
+          - name: JIRA_ID
+            value: "{{ inputs.parameters.JIRA_ID }}"
 
       - name: echo
         depends: "jira-close"
@@ -76,14 +76,13 @@ spec:
       parameters:
       - name: parameters
     script:
-      image: quay.io/codefresh/curl-base:8.9.1 # because it contains jq
+      image: alpine:3.20
       env:
-      - name: parameters
-        value: "{{ inputs.parameters.parameters }}"
+      - name: JIRA_ID
+        value: "{{ inputs.parameters.JIRA_ID }}"
       command:
       - sh
       source: |
-        export JIRA_ID=$(echo ${parameters} | jq -r '.[0].value')
         echo "got JIRA_ID \"${JIRA_ID}\""
         sleep 5
         echo "after handling jira in post action"
