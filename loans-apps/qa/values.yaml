@@ -11,7 +11,7 @@ loans:
       cpu: 50m
       memory: 64Mi
   podLabels:
-    key: "2024-11-03T12:13:18Z"
+    key: "2024-11-03T12:24:45Z"
 interest:
   image:
     repository: quay.io/noam_codefresh/interest
