@@ -10,10 +10,8 @@ loans:
     requests:
       cpu: 50m
       memory: 64Mi
-  podLabels:
-    key: "1730630363"
   podAnnotations:
-    key: "1730630420"
+    key: "2024-11-03T12:40:27Z"
 interest:
   image:
     repository: quay.io/noam_codefresh/interest
