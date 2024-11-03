@@ -12,6 +12,8 @@ loans:
       memory: 64Mi
   podLabels:
     key: "1730630363"
+  podAnnotations:
+    key: "1730630420"
 interest:
   image:
     repository: quay.io/noam_codefresh/interest
