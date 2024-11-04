@@ -2,6 +2,7 @@ loans:
   image:
     repository: quay.io/noam_codefresh/loans
     tag: v3
+
   replicaCount: 1
   resources:
     limits:
@@ -12,8 +13,10 @@ loans:
       memory: 64Mi
   podAnnotations:
     key: "2024-11-03T13:05:27Z"
+
 interest:
   image:
     repository: quay.io/noam_codefresh/interest
-    tag: v1
+    tag: v2
+
   replicaCount: 1
