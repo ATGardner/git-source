@@ -17,14 +17,14 @@ spec:
   destination:
     name: in-cluster
     namespace: staging-4
-  # syncPolicy:
+  syncPolicy:
   #   automated:
   #     prune: true
   #     selfHeal: true
-  #   syncOptions:
-  #   - PrunePropagationPolicy=foreground
-  #   - Replace=false
-  #   - PruneLast=false
-  #   - Validate=true
-  #   - CreateNamespace=true
-  #   - ApplyOutOfSyncOnly=false
+    syncOptions:
+    - PrunePropagationPolicy=foreground
+    - Replace=false
+    - PruneLast=false
+    - Validate=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=false
