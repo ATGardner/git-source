@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: pre-action-dummy-commit
+  annotations:
+    codefresh.io/workflow-origin: promotion
+    codefresh.io/promotion-stage: pre-action
+spec:
+  serviceAccountName: pre-action-sa
+  entrypoint: generate-dummy-commit
+  templates:
+  - name: generate-dummy-commit
+    outputs:
+      parameters:
+      - name: COMMIT_SHA
+        globalName: COMMIT_SHA
+        valueFrom:
+          path: /tmp/COMMIT_SHA
+    script:
+      image: alpine:3.20
+      command:
+      - sh
+      source: |
+        DUMMY_SHA=$(cat /dev/urandom | tr -dc 'a-fA-F0-9' | head -c 40)
+        echo ${DUMMY_SHA} > /tmp/COMMIT_SHA

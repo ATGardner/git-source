@@ -88,7 +88,7 @@ spec:
       - name: APP_MANIFEST
     outputs:
       parameters:
-      - name: RESULT
+      - name: JIRA_ID
         globalName: JIRA_ID
         valueFrom:
           path: /tmp/JIRA_ID
