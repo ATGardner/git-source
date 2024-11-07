@@ -5,6 +5,8 @@ metadata:
   annotations:
     codefresh.io/workflow-origin: promotion
     codefresh.io/promotion-stage: post-action
+    version: 0.0.1
+    description: 'a demo jira-close-ticket wf. expects (dummy) JIRA_ID argument'
 spec:
   serviceAccountName: post-action-sa
   entrypoint: dag

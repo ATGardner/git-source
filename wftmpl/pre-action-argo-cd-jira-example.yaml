@@ -5,6 +5,8 @@ metadata:
   annotations:
     codefresh.io/workflow-origin: promotion
     codefresh.io/promotion-stage: pre-action
+    version: 0.0.1
+    description: 'a demo jira-open-ticket wf. outputs (dummy) JIRA_ID value'
 spec:
   serviceAccountName: pre-action-sa
   entrypoint: dag

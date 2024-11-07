@@ -5,6 +5,8 @@ metadata:
   annotations:
     codefresh.io/workflow-origin: promotion
     codefresh.io/promotion-stage: pre-action
+    version: 0.0.1
+    description: 'a demo 4-step pre-action wf. 2nd step is "suspend"'
 spec:
   serviceAccountName: pre-action-sa
   entrypoint: dag
