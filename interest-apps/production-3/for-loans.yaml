@@ -1,0 +1,16 @@
+database:
+  host: https://prod-db.server
+  port: 5432
+  username: myuser-prod
+
+
+server:
+  port: 8080
+  timeout: 30
+  env:
+    SESSION_INTERVAL: 1500
+    BATCH_SIZE: 25
+
+logging:
+  level: warn
+  file: /path/to/logfile.log
