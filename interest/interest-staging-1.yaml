@@ -13,10 +13,10 @@ spec:
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: main
-    path: loans-apps/interest-1
+    path: interest-apps/staging-1
   destination:
     name: in-cluster
-    namespace: interest-1
+    namespace: staging-1
   syncPolicy:
     automated:
       prune: true
