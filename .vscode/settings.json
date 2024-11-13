@@ -1,6 +1,5 @@
 {
     "git.branchProtection": [
         ""
-    ],
-    "git.postCommitCommand": "push"
+    ]
 }
