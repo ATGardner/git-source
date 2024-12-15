@@ -5,6 +5,8 @@ metadata:
   annotations:
     codefresh.io/workflow-origin: promotion
     codefresh.io/promotion-stage: post-action
+    version: 0.0.1
+    description: 'a 1-step post action that prints the commit log'
 spec:
   serviceAccountName: post-action-sa
   arguments:

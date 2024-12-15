@@ -5,6 +5,8 @@ metadata:
   annotations:
     codefresh.io/workflow-origin: promotion
     codefresh.io/promotion-stage: pre-action
+    version: 0.0.1
+    description: 'a 1-step pre-action that outputs a (dummy) commit sha'
 spec:
   serviceAccountName: pre-action-sa
   entrypoint: generate-dummy-commit
