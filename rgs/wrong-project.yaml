@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wrong-project
+  name: wrong-project #
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
 spec:
-  project: default # <-- illeagal project
+  project: rgs-test # <-- illeagal project
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: HEAD
-    path: wrong-project
+    path: rgs-apps/wrong-project #
   destination:
     name: in-cluster
-    namespace: hulk-team-zone
+    namespace: cf-restricted #
   syncPolicy:
     automated:
       prune: true

@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: good-app #
+  name: good-app
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
 spec:
-  project: hulk-team #
+  project: rgs-test #
   source:
     repoURL: https://github.com/ATGardner/git-source.git #
     targetRevision: HEAD #
-    path: good-app #
+    path: rgs-apps/good-app #
   destination:
     name: in-cluster
-    namespace: hulk-team-zone #
+    namespace: cf-restricted #
   syncPolicy:
     automated:
       prune: true

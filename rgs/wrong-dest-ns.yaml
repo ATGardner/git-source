@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wrong-dest-ns
+  name: wrong-dest-ns #
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
 spec:
-  project: hulk-team
+  project: rgs-test #
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: HEAD
-    path: wrong-dest-ns
+    path: rgs-apps/wrong-dest-ns #
   destination:
     name: in-cluster
     namespace: runtime # <-- illeagal namespace
