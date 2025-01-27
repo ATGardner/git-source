@@ -23,7 +23,7 @@ spec:
         path: '{{.path.path}}'
       destination:
         namespace: runtime
-        name: noam
+        name: in-cluster
       syncPolicy:
         automated:
           allowEmpty: true
