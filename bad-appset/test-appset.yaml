@@ -10,7 +10,7 @@ spec:
       repoURL: https://github.com/ATGardner/git-source.git
       revision: HEAD
       directories:
-      - path: appset-apps/app1
+      - path: appset-apps/app12
       requeueAfterSeconds: 20
   template:
     metadata:
