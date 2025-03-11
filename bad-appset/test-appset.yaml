@@ -14,7 +14,7 @@ spec:
       requeueAfterSeconds: 20
   template:
     metadata:
-      name: 'test-appset-{{.path.basename}}'
+      name: 'test-appset-{{.path.basenamea}}'
     spec:
       project: default
       source:
