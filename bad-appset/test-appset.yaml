@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: bad-appset
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: https://github.com/ATGardner/git-source.git
+      revision: HEAD
+      directories:
+      - path: appset-appsa/*
+      requeueAfterSeconds: 20
+  template:
+    metadata:
+      name: 'test-appset-{{.path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/ATGardner/git-source.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        namespace: runtime
+        name: in-cluster
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - PrunePropagationPolicy=foreground
+        - Replace=false
+        - PruneLast=false
+        - Validate=true
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=false
