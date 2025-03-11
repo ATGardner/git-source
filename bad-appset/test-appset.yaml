@@ -7,10 +7,10 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
-      repoURL: https://github.com/ATGardner/git-sourcea.git
+      repoURL: https://github.com/ATGardner/git-source.git
       revision: HEAD
       directories:
-      - path: appset-appsa/*
+      - path: appset-apps/app1
       requeueAfterSeconds: 20
   template:
     metadata:
