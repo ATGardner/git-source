@@ -2,8 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: loans-qa
-  # finalizers:
-  # - resources-finalizer.argocd.argoproj.io/foreground
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
     codefresh.io/product: loans
   labels:
