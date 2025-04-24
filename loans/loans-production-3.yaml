@@ -1,22 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: loans-staging
+  name: loans-production
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
     codefresh.io/product: loans
   labels:
-    env: staging
+    env: production
 spec:
   project: default
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: main
-    path: loans-apps/staging
+    path: loans-apps/production-3
   destination:
     name: in-cluster
-    namespace: staging
+    namespace: production-3
   syncPolicy:
     automated:
       prune: true
