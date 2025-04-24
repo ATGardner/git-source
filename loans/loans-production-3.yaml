@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: loans-production
+  name: loans-production-3
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
