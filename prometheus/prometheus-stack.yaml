@@ -1,3 +1,4 @@
+# helm install my-kube-prometheus-stack oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack --version 70.10.0
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -9,8 +10,7 @@ metadata:
 spec:
   project: default # Change if you use a different Argo CD project
   source:
-    repoURL: oci://ghcr.io/prometheus-community/charts
-    chart: kube-prometheus-stack
+    repoURL: oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack
     targetRevision: 70.10.0 # Specify the chart version
     helm:
       values: |
