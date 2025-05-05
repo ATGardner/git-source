@@ -6,7 +6,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io/foreground
   labels:
     env: production
-    another: label123
+    another: label1234
   annotations:
     codefresh.io/product: loans
 spec:
