@@ -1,4 +1,3 @@
-#comment
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -7,7 +6,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io/foreground
   labels:
     env: production
-    another: label1234
+    another: label12345
   annotations:
     codefresh.io/product: loans
 spec:
