@@ -1,22 +1,22 @@
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  name: gitops-operator-monitor
-  # Adjust the namespace if your PodMonitor needs to be in a specific namespace (e.g., monitoring)
-  # namespace: codefresh
-  labels:
-    # Add any relevant labels for your monitoring setup
-    release: kube-prometheus-stack
-spec:
-  selector:
-    matchLabels:
-      # Ensure these labels match the labels on your gitops-operator Service
-      app: gitops-operator
-  podMetricsEndpoints:
-  - port: http-metrics # Ensure this matches the name of the port exposing metrics in your Service definition
-    interval: 30s # Adjust scrape interval as needed
-    path: /metrics # Uncomment and adjust if the metrics path is different
-  # If the gitops-operator service is in a different namespace than the PodMonitor, specify it here
-  # namespaceSelector:
-  #   matchNames:
-  #   - <namespace-of-your-gitops-operator-service>
+# apiVersion: monitoring.coreos.com/v1
+# kind: PodMonitor
+# metadata:
+#   name: gitops-operator-monitor
+#   # Adjust the namespace if your PodMonitor needs to be in a specific namespace (e.g., monitoring)
+#   # namespace: codefresh
+#   labels:
+#     # Add any relevant labels for your monitoring setup
+#     release: kube-prometheus-stack
+# spec:
+#   selector:
+#     matchLabels:
+#       # Ensure these labels match the labels on your gitops-operator Service
+#       app: gitops-operator
+#   podMetricsEndpoints:
+#   - port: http-metrics # Ensure this matches the name of the port exposing metrics in your Service definition
+#     interval: 30s # Adjust scrape interval as needed
+#     path: /metrics # Uncomment and adjust if the metrics path is different
+#   # If the gitops-operator service is in a different namespace than the PodMonitor, specify it here
+#   # namespaceSelector:
+#   #   matchNames:
+#   #   - <namespace-of-your-gitops-operator-service>
