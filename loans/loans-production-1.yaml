@@ -1,31 +1,34 @@
-#comment
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: loans-production-1
   finalizers:
-  - resources-finalizer.argocd.argoproj.io/foreground
-  annotations:
-    codefresh.io/product: loans
+    - resources-finalizer.argocd.argoproj.io/foreground
   labels:
     env: production
+    another: label
+  annotations:
+    codefresh.io/product: loans
 spec:
   project: default
-  source:
-    repoURL: https://github.com/ATGardner/git-source.git
-    targetRevision: main
-    path: loans-apps/production-1
   destination:
     name: in-cluster
     namespace: production-1
+  source:
+    path: loans-apps/production-1
+    repoURL: https://github.com/ATGardner/git-source.git
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+      allowEmpty: false
     syncOptions:
-    - PrunePropagationPolicy=foreground
-    - Replace=false
-    - PruneLast=false
-    - Validate=true
-    - CreateNamespace=true
-    - ApplyOutOfSyncOnly=false
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=false
