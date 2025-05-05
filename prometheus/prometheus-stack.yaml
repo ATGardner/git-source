@@ -1,28 +1,28 @@
-# # helm install my-kube-prometheus-stack oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack --version 70.10.0
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: kube-prometheus-stack
-#   # Change this to the namespace where your Argo CD is running, if not 'argocd'
-#   # namespace: argocd
-#   finalizers:
-#     - resources-finalizer.argocd.argoproj.io
-# spec:
-#   project: default # Change if you use a different Argo CD project
-#   source:
-#     repoURL: ghcr.io/prometheus-community/charts
-#     chart: kube-prometheus-stack
-#     targetRevision: 70.10.0 # Specify the chart version
-#     helm:
-#       values: |
-#         nodeExporter:
-#           enabled: false
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: prometheus # Target namespace for deployment
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#     syncOptions:
-#       - CreateNamespace=true # Ensures the target namespace is created if it doesn't exist
+# helm install my-kube-prometheus-stack oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack --version 70.10.0
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  # Change this to the namespace where your Argo CD is running, if not 'argocd'
+  # namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default # Change if you use a different Argo CD project
+  source:
+    repoURL: ghcr.io/prometheus-community/charts
+    chart: kube-prometheus-stack
+    targetRevision: 70.10.0 # Specify the chart version
+    helm:
+      values: |
+        nodeExporter:
+          enabled: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prometheus # Target namespace for deployment
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true # Ensures the target namespace is created if it doesn't exist
