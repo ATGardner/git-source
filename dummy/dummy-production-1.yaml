@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dummy-production-1
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/foreground
+  labels:
+    env: production
+  annotations:
+    codefresh.io/product: loans
+spec:
+  project: default
+  destination:
+    name: in-cluster
+    namespace: production-1
+  source:
+    path: dummy-apps/production-1
+    repoURL: https://github.com/ATGardner/git-source.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=false
