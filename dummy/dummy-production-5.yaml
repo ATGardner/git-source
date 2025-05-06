@@ -5,7 +5,7 @@
 #   finalizers:
 #   - resources-finalizer.argocd.argoproj.io/foreground
 #   annotations:
-#     codefresh.io/product: loans
+#     codefresh.io/product: dummy
 #   labels:
 #     env: production-internal
 # spec:
