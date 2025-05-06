@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: example-configmap
+  name: dummy-cm
 data:
   key1: value1
   key2: value2
