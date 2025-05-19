@@ -3,7 +3,7 @@ kind: PodMonitor
 metadata:
   name: gitops-operator-monitor
   annotations:
-    argocd.argoproj.io/sync-wave: '2'
+    argocd.argoproj.io/sync-wave: "2"
   labels:
     release: kube-prometheus-stack
 spec:
@@ -11,6 +11,6 @@ spec:
     matchLabels:
       app: gitops-operator
   podMetricsEndpoints:
-  - port: http-metrics
-    interval: 30s
-    path: /metrics
+    - port: http-metrics
+      interval: 30s
+      path: /metrics
