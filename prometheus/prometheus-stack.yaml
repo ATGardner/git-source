@@ -14,11 +14,11 @@ spec:
   source:
     repoURL: ghcr.io/prometheus-community/charts
     chart: kube-prometheus-stack
-    targetRevision: 70.10.0 # Specify the chart version
-    # helm:
-    #   values: |
-    #     nodeExporter:
-    #       enabled: false
+    targetRevision: 72.5.0 # Specify the chart version
+    helm:
+      values: |
+        nodeExporter:
+          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: prometheus # Target namespace for deployment
