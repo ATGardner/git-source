@@ -14,9 +14,9 @@ spec:
     name: in-cluster
     namespace: production-1
   source:
-    repoURL: https://github.com/codefresh-io/argo-platform.git
-    targetRevision: test-ignore
     path: dummy-apps/production-1
+    repoURL: https://github.com/ATGardner/git-source.git
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true
