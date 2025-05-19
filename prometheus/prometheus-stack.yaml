@@ -16,14 +16,14 @@ spec:
     # helm:
     #   values: |
     #     nodeExporter:
-    #       enabled: true
+    #       enabled: false
   destination:
     server: https://kubernetes.default.svc
-    namespace: prometheus # Target namespace for deployment
+    namespace: prometheus
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true # Ensures the target namespace is created if it doesn't exist
+      - CreateNamespace=true
       - ServerSideApply=true
