@@ -4,6 +4,8 @@ metadata:
   name: gitops-operator-monitor
   # Adjust the namespace if your PodMonitor needs to be in a specific namespace (e.g., monitoring)
   # namespace: codefresh
+  annotations:
+    argocd.argoproj.io/sync-wave: 2
   labels:
     # Add any relevant labels for your monitoring setup
     release: kube-prometheus-stack

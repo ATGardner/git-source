@@ -3,6 +3,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kube-prometheus-stack
+  annotations:
+    argocd.argoproj.io/sync-wave: 1
   # Change this to the namespace where your Argo CD is running, if not 'argocd'
   # namespace: argocd
   finalizers:
@@ -13,10 +15,10 @@ spec:
     repoURL: ghcr.io/prometheus-community/charts
     chart: kube-prometheus-stack
     targetRevision: 70.10.0 # Specify the chart version
-    helm:
-      values: |
-        nodeExporter:
-          enabled: false
+    # helm:
+    #   values: |
+    #     nodeExporter:
+    #       enabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: prometheus # Target namespace for deployment
