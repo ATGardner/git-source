@@ -1,24 +1,22 @@
-# helm install my-kube-prometheus-stack oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack --version 70.10.0
+# helm install my-kube-prometheus-stack oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack:72.5.0
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kube-prometheus-stack
   annotations:
-    argocd.argoproj.io/sync-wave: 1
-  # Change this to the namespace where your Argo CD is running, if not 'argocd'
-  # namespace: argocd
+    argocd.argoproj.io/sync-wave: '1'
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default # Change if you use a different Argo CD project
+  project: default
   source:
     repoURL: ghcr.io/prometheus-community/charts
     chart: kube-prometheus-stack
-    targetRevision: 72.5.0 # Specify the chart version
-    helm:
-      values: |
-        nodeExporter:
-          enabled: true
+    targetRevision: 72.5.0 
+    # helm:
+    #   values: |
+    #     nodeExporter:
+    #       enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: prometheus # Target namespace for deployment
