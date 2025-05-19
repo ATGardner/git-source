@@ -11,8 +11,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ATGardner/git-source.git
-    targetRevision: main
+    repoURL: https://github.com/codefresh-io/argo-platform.git
+    targetRevision: test-ignore
     path: dummy-apps/production-3
   destination:
     name: in-cluster
