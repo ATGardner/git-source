@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dummy-qa
+  name: simple-qa
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
