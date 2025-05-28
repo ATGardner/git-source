@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/codefresh-io/argo-platform.git
-    targetRevision: maiCR-29159-fix-app-proxy-memoryn
+    targetRevision: CR-29159-fix-app-proxy-memory
     path: dummy-apps/staging-2
   destination:
     name: in-cluster
