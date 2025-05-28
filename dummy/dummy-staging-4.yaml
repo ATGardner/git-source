@@ -11,8 +11,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ATGardner/git-source.git
-    targetRevision: main
+    repoURL: https://github.com/codefresh-io/argo-platform.git
+    targetRevision: CR-29159-fix-app-proxy-memory
     path: dummy-apps/staging-4
   destination:
     name: in-cluster
