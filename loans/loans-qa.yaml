@@ -28,5 +28,3 @@ spec:
     - Validate=true
     - CreateNamespace=true
     - ApplyOutOfSyncOnly=false
-    - ServerSideApply=true
-    - RespectIgnoreDifferences=false
