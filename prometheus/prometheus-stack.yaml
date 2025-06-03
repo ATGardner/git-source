@@ -10,7 +10,6 @@ metadata:
 spec:
   project: default
   source:
-    helm: {}
     repoURL: ghcr.io/prometheus-community/charts
     chart: kube-prometheus-stack
     targetRevision: 72.9.0
