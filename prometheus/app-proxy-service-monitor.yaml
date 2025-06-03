@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: app-proxy-monitor
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app: cap-app-proxy
+  endpoints:
+    - port: http-metrics
+      interval: 1s
+      path: /metrics
