@@ -11,8 +11,10 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/codefresh-io/argo-platform.git
-    targetRevision: CR-29159-for-handshake
+    repoURL: https://github.com/ATGardner/git-source.git
+    # repoURL: https://github.com/codefresh-io/argo-platform.git
+    targetRevision: main
+    # targetRevision: CR-29159-for-handshake
     path: simple-apps/qa
   destination:
     name: in-cluster
