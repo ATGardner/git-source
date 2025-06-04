@@ -20,6 +20,7 @@ spec:
             - containerPort: 3000
             - containerPort: 4317
             - containerPort: 4318
+            - containerPort: 9097
           readinessProbe:
             exec:
               command:
@@ -55,4 +56,3 @@ spec:
           emptyDir: {}
         - name: pyroscope-storage
           emptyDir: {}
-
