@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-19-qa
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io/foreground
+  annotations:
+    codefresh.io/product: simple
+  labels:
+    env: qa
+spec:
+  project: default
+  source:
+    # repoURL: https://github.com/ATGardner/git-source.git
+    repoURL: https://github.com/codefresh-io/argo-platform.git
+    # targetRevision: main
+    targetRevision: CR-29159-for-handshake
+    path: simple-apps/qa
+  destination:
+    name: in-cluster
+    namespace: qa
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - PrunePropagationPolicy=foreground
+    - Replace=false
+    - PruneLast=false
+    - Validate=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=false
