@@ -5,7 +5,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
-    codefresh.io/product: simple
+    codefresh.io/product: simple-19
   labels:
     env: production
 spec:
