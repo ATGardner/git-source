@@ -16,7 +16,7 @@ spec:
     path: lgtm-app
   destination:
     name: in-cluster
-    namespace: qa
+    namespace: runtime
   syncPolicy:
     automated:
       prune: true
