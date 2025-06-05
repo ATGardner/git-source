@@ -16,7 +16,7 @@ spec:
     path: simple-apps/qa
   destination:
     name: in-cluster
-    namespace: qa
+    namespace: qa-small
   syncPolicy:
     automated:
       prune: true

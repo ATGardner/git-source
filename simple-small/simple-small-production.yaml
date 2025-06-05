@@ -16,7 +16,7 @@ spec:
     path: simple-apps/production
   destination:
     name: in-cluster
-    namespace: production
+    namespace: production-small
   syncPolicy:
     automated:
       prune: true
