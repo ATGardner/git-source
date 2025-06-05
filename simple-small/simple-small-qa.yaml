@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-small-qa
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io/foreground
+  annotations:
+    codefresh.io/product: simple-small
+  labels:
+    env: qa
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ATGardner/git-source.git
+    targetRevision: main
+    path: simple-apps/qa
+  destination:
+    name: in-cluster
+    namespace: qa
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - PrunePropagationPolicy=foreground
+    - Replace=false
+    - PruneLast=false
+    - Validate=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=false
