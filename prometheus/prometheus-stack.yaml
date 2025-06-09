@@ -1,4 +1,5 @@
-# helm install my-kube-prometheus-stack oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack:72.5.0
+# helm install my-kube-prometheus-stack oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack:72.9.0
+# helm show values oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack:72.9.0 > values.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -13,10 +14,14 @@ spec:
     repoURL: ghcr.io/prometheus-community/charts
     chart: kube-prometheus-stack
     targetRevision: 72.9.0
-    # helm:
-    #   values: |
-    #     nodeExporter:
-    #       enabled: false
+    helm:
+      values: |
+        # nodeExporter:
+        #   enabled: false
+        prometheus-node-exporter:
+          prometheus:
+            monitor:
+              interval: 10s
   destination:
     server: https://kubernetes.default.svc
     namespace: prometheus
