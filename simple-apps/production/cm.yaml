@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: simple-cm
 data:
-  version: "7"
+  version: "2"
