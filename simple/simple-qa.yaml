@@ -14,7 +14,7 @@ spec:
     # repoURL: https://github.com/ATGardner/git-source.git
     repoURL: https://github.com/codefresh-io/argo-platform.git
     # targetRevision: main
-    targetRevision: CR-29159-for-handshake
+    targetRevision: CR-29159-fix-app-proxy-memory
     path: simple-apps/qa
   destination:
     name: in-cluster
