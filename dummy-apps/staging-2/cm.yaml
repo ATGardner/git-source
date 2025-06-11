@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: dummy-cm
 data:
-  version: "26"
+  version: "31"
