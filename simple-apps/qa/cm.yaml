@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: simple-cm
   label:
-    unrelated: change3
+    unrelated: change4
 data:
   version: "4"
