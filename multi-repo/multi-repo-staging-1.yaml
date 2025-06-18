@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: multi-repo-staging-1
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io/foreground
+  annotations:
+    codefresh.io/product: multi-repo
+  labels:
+    env: staging
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ATGardner/git-source.git
+    targetRevision: main
+    path: multi-repo-apps/staging-1
+  destination:
+    name: in-cluster
+    namespace: staging-1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - PrunePropagationPolicy=foreground
+    - Replace=false
+    - PruneLast=false
+    - Validate=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=false
