@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: multi-repo-cm
 data:
-  version: "35"
+  version: "36"
