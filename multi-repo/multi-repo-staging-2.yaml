@@ -11,7 +11,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ATGardner/git-source.git
+    repoURL: https://github.com/ATGardner/applications.git
     targetRevision: main
     path: multi-repo-apps/staging-2
   destination:
