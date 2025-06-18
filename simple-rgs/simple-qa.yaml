@@ -1,24 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: simple-19-qa
+  name: simple-rgs-qa
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
-    codefresh.io/product: simple-19
+    codefresh.io/product: simple-rgs
   labels:
     env: qa
 spec:
-  project: default
+  project: rgs-test
   source:
     repoURL: https://github.com/ATGardner/git-source.git
-    # repoURL: https://github.com/codefresh-io/argo-platform.git
     targetRevision: main
-    # targetRevision: CR-29159-fix-app-proxy-memory
     path: simple-apps/qa
   destination:
     name: in-cluster
-    namespace: qa-19
+    namespace: cf-restricted
   syncPolicy:
     automated:
       prune: true
