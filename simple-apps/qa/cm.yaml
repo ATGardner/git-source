@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: simple-qa-cm
 data:
-  version: "9"
+  version: "10"
