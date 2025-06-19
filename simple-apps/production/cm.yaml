@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: simple-production-cm
 data:
-  version: "11"
+  version: "12"
