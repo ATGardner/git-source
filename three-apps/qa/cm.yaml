@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: three-qa-cm
 data:
-  version: "19"
+  version: "20"
