@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: three-production-cm
 data:
-  version: "19"
+  version: "20"
