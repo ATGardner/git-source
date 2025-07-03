@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: three-production
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io/foreground
+  annotations:
+    codefresh.io/product: three
+  labels:
+    env: production
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ATGardner/git-source.git
+    targetRevision: main
+    path: three-apps/production
+  destination:
+    name: in-cluster
+    namespace: production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - PrunePropagationPolicy=foreground
+    - Replace=false
+    - PruneLast=false
+    - Validate=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=false
