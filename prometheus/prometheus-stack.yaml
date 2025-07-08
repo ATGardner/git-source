@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: ghcr.io/prometheus-community/charts
     chart: kube-prometheus-stack
-    targetRevision: 73.2.2
+    targetRevision: 75.9.0
     helm:
       values: |
         # nodeExporter:
