@@ -11,8 +11,10 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ATGardner/git-source.git
-    targetRevision: main
+    # repoURL: https://github.com/ATGardner/git-source.git
+    repoURL: https://github.com/codefresh-io/argo-platform.git
+    # targetRevision: main
+    targetRevision: temp-for-memory-test
     path: simple-apps/production
   destination:
     name: in-cluster
