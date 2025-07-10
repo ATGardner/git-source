@@ -33,7 +33,7 @@ spec:
 # Rule 3: Allow traffic to the Kubernetes API server.
   - to:
     - ipBlock:
-        cidr: 10.43.0.1/32
+        cidr: 172.18.0.3/32
     ports:
     - protocol: TCP
-      port: 443
+      port: 6443
