@@ -16,8 +16,8 @@ spec:
     targetRevision: 75.9.0
     helm:
       values: |
-        # nodeExporter:
-        #   enabled: false
+        nodeExporter:
+          enabled: false
         prometheus-node-exporter:
           prometheus:
             monitor:
