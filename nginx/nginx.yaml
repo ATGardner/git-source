@@ -30,5 +30,5 @@ spec:
     app: nginx-forward-proxy
   ports:
     - protocol: TCP
-      port: 8080 # The port the service will be exposed on
-      targetPort: 8080 # The port on the container to forward traffic to
+      port: 8080
+      targetPort: 8080
