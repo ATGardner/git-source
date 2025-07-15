@@ -1,21 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: simple-21-qa
+  name: empty-product-qa
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
-    codefresh.io/product: simple-21
+    codefresh.io/product: empty-product
   labels:
     env: qa
 spec:
   project: default
   source:
-    # repoURL: https://github.com/ATGardner/git-source.git
-    repoURL: https://github.com/codefresh-io/argo-platform.git
-    # targetRevision: main
-    targetRevision: temp-for-memory-test
-    path: simple-apps/qa
+    repoURL: https://github.com/ATGardner/git-source.git
+    targetRevision: main
+    path: empty-product-apps/qa
   destination:
     name: in-cluster
     namespace: qa
