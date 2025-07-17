@@ -11,8 +11,8 @@ metadata:
 spec:
   project: default
   source:
-    # repoURL: https://github.com/ATGardner/git-source.git
-    repoURL: https://github.com/ATGardner/applications.git
+    repoURL: https://github.com/ATGardner/git-source.git
+    # repoURL: https://github.com/ATGardner/applications.git
     targetRevision: main
     path: dummy-apps/production-5
   destination:
