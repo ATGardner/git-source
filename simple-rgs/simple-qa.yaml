@@ -9,7 +9,7 @@ metadata:
   labels:
     env: qa
 spec:
-  project: rgs-test
+  project: test-rgs
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: main
