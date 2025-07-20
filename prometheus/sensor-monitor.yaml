@@ -11,6 +11,6 @@ spec:
     matchLabels:
       controller: sensor-controller
   podMetricsEndpoints:
-    - port: http-metrics
+    - port: metrics
       interval: 30s
       path: /metrics

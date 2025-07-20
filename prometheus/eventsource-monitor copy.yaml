@@ -11,6 +11,6 @@ spec:
     matchLabels:
       controller: eventsource-controller
   podMetricsEndpoints:
-    - port: http-metrics
+    - port: metrics
       interval: 30s
       path: /metrics
