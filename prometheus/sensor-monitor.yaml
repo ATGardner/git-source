@@ -1,16 +1,16 @@
-# apiVersion: monitoring.coreos.com/v1
-# kind: PodMonitor
-# metadata:
-#   name: gitops-operator-monitor
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "2"
-#   labels:
-#     release: kube-prometheus-stack
-# spec:
-#   selector:
-#     matchLabels:
-#       controller: sensor-controller
-#   podMetricsEndpoints:
-#     - port: http-metrics
-#       interval: 30s
-#       path: /metrics
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: gitops-operator-monitor
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      controller: sensor-controller
+  podMetricsEndpoints:
+    - port: http-metrics
+      interval: 30s
+      path: /metrics
