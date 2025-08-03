@@ -4,3 +4,4 @@ metadata:
   name: dummy-qa-cm
 data:
   version: "62"
+  key: value
