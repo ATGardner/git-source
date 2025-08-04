@@ -1,5 +1,5 @@
-# helm install my-kube-prometheus-stack oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack:73.2.2
-# helm show values oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack:73.2.2 > values.yaml
+# helm install redis oci://registry-1.docker.io/bitnamicharts/redis:21.2.13
+# helm show values oci://registry-1.docker.io/bitnamicharts/redis:21.2.13 > values.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
