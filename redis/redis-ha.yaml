@@ -50,8 +50,6 @@ spec:
               operator: Equal
               value: disruption-sensitive
               effect: NoSchedule
-        auth: true
-        existingSecret: control-plane-redis
         persistentVolume:
           enabled: true
           size: 30Gi
