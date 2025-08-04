@@ -1,0 +1,32 @@
+# helm install my-kube-prometheus-stack oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack:73.2.2
+# helm show values oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack:73.2.2 > values.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redis
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: oci://registry-1.docker.io/bitnamicharts
+    chart: redis
+    targetRevision: 21.2.13
+    helm:
+      values: |
+        global:
+          imageRegistry: docker.io
+
+        image:
+          registry: docker.io
+          repository: redis
+          tag: 8.0.3
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: runtime
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
