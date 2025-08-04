@@ -1,33 +1,33 @@
-# helm install redis oci://registry-1.docker.io/bitnamicharts/redis:21.2.13
-# helm show values oci://registry-1.docker.io/bitnamicharts/redis:21.2.13 > values.yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: redis
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: default
-  source:
-    repoURL: registry-1.docker.io/bitnamicharts
-    chart: redis
-    targetRevision: 21.2.13
-    helm:
-      releaseName: cf
-      values: |
-        global:
-          imageRegistry: docker.io
+# # helm install redis oci://registry-1.docker.io/bitnamicharts/redis:21.2.13
+# # helm show values oci://registry-1.docker.io/bitnamicharts/redis:21.2.13 > values.yaml
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: redis
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: default
+#   source:
+#     repoURL: registry-1.docker.io/bitnamicharts
+#     chart: redis
+#     targetRevision: 21.2.13
+#     helm:
+#       releaseName: cf
+#       values: |
+#         global:
+#           imageRegistry: docker.io
 
-        image:
-          registry: docker.io
-          repository: redis
-          tag: 8.0.3
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: runtime
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - ServerSideApply=true
+#         image:
+#           registry: docker.io
+#           repository: redis
+#           tag: 8.0.3
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: runtime
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - ServerSideApply=true

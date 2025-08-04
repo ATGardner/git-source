@@ -1,0 +1,97 @@
+# helm install redis oci://registry-1.docker.io/bitnamicharts/redis:21.2.13
+# helm show values oci://registry-1.docker.io/bitnamicharts/redis:21.2.13 > values.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redis-ha
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://dandydeveloper.github.io/charts
+    chart: redis-ha
+    targetRevision: 4.23.0
+    helm:
+      releaseName: cf
+      values: | #yaml
+        haproxy:
+          enabled: true
+          metrics:
+            enabled: true
+            serviceMonitor:
+              enabled: true
+          resources:
+            limits:
+              memory: 1Gi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          podDisruptionBudget:
+            maxUnavailable: 1
+          affinity: |
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
+                      - key: node-type
+                        operator: In
+                        values:
+                          - disruption-sensitive
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchLabels:
+                      app: redis-cfapi-haproxy
+                      release: production
+                  topologyKey: kubernetes.io/hostname
+          tolerations:
+            - key: codefresh.io
+              operator: Equal
+              value: disruption-sensitive
+              effect: NoSchedule
+        auth: true
+        existingSecret: control-plane-redis
+        persistentVolume:
+          enabled: true
+          size: 30Gi
+        podDisruptionBudget:
+          maxUnavailable: 1
+        affinity: |
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+                - matchExpressions:
+                    - key: node-type
+                      operator: In
+                      values:
+                        - disruption-sensitive
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchLabels:
+                    app: redis-cfapi
+                    release: production
+                    production-redis-cfapi: replica
+                topologyKey: kubernetes.io/hostname
+        tolerations:
+          - key: codefresh.io
+            operator: Equal
+            value: disruption-sensitive
+            effect: NoSchedule
+        redis:
+          resources:
+            limits:
+              memory: 4Gi
+            requests:
+              cpu: 2000m
+              memory: 2Gi
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: runtime
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
