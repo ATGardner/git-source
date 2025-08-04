@@ -13,6 +13,7 @@ spec:
     chart: redis
     targetRevision: 21.2.13
     helm:
+      releaseName: cf
       values: |
         global:
           imageRegistry: docker.io
