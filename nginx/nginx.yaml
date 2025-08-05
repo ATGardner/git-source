@@ -15,10 +15,10 @@ spec:
         app: nginx-forward-proxy
     spec:
       containers:
-        - name: nginx-forward-proxy
-          image: dominikbechstein/nginx-forward-proxy:latest
-          ports:
-            - containerPort: 8080
+      - name: nginx-forward-proxy
+        image: quay.io/noam_codefresh/nginx-forward-proxy:latest
+        ports:
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -29,6 +29,6 @@ spec:
   selector:
     app: nginx-forward-proxy
   ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
