@@ -7,7 +7,7 @@ metadata:
 spec:
   project: default
   destination:
-    name: kubernetes-admin-arena-12
+    name: in-cluster # kubernetes-admin-arena-12
     namespace: staging-scale-1
   source:
     path: base-demo-app
