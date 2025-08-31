@@ -8,7 +8,7 @@ spec:
   project: default
   destination:
     name: in-cluster # kubernetes-admin-arena-12
-    namespace: staging-scale-2
+    namespace: scale-2
   source:
     path: base-demo-app
     repoURL: https://github.com/ATGardner/git-source.git
