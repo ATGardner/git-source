@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: dummy-qa-cm
 data:
-  version: "555"
+  version: "5555"
   key: value3
