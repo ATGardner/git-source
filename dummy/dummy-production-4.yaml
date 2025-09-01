@@ -16,7 +16,7 @@ spec:
     targetRevision: main
     path: dummy-apps/production-4
   destination:
-    name: in-cluster
+    name: kubernetes-admin-noam-ha
     namespace: production-4
   syncPolicy:
     automated:

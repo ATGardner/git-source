@@ -15,7 +15,7 @@ spec:
     targetRevision: main
     path: dummy-apps/staging-1
   destination:
-    name: in-cluster
+    name: kubernetes-admin-noam-ha
     namespace: staging-1
   syncPolicy:
     automated:

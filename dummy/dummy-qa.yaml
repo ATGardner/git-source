@@ -15,7 +15,7 @@ spec:
     targetRevision: main
     path: dummy-apps/qa
   destination:
-    name: in-cluster
+    name: kubernetes-admin-noam-ha
     namespace: qa
   syncPolicy:
     automated:
