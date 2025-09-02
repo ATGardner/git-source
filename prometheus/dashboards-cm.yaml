@@ -1337,7 +1337,7 @@ data:
       "preload": false,
       "refresh": "",
       "schemaVersion": 41,
-      "tags": [],
+      "tags": [ "gitops-runtime" ],
       "templating": {
         "list": []
       },
@@ -5494,7 +5494,7 @@ data:
       ],
       "refresh": "",
       "schemaVersion": 39,
-      "tags": [],
+      "tags": [ "gitops-runtime" ],
       "templating": {
         "list": [
           {
