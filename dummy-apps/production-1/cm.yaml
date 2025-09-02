@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: dummy-production-1-cm
 data:
-  version: "55555"
+  version: "1111"
