@@ -97,7 +97,7 @@ data:
               "showLegend": true
             },
             "orientation": "auto",
-            "showValue": "auto",
+            "showValue": "never",
             "stacking": "normal",
             "tooltip": {
               "hideZeros": false,
@@ -1337,7 +1337,9 @@ data:
       "preload": false,
       "refresh": "",
       "schemaVersion": 41,
-      "tags": [ "gitops-runtime" ],
+      "tags": [
+        "gitops-runtime"
+      ],
       "templating": {
         "list": []
       },
@@ -1349,7 +1351,7 @@ data:
       "timezone": "browser",
       "title": "event-reporter",
       "uid": "977dfcfe-ed59-428e-9071-b4d321fff374",
-      "version": 3
+      "version": 5
     }
   argo-cd.json: |
     {
