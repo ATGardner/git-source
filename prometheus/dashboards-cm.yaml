@@ -111,7 +111,7 @@ data:
           "targets": [
             {
               "editorMode": "code",
-              "expr": "argocd_repo_pending_request_total",
+              "expr": "sum(argocd_repo_pending_request_total) by(repo)",
               "legendFormat": "{{repo}}",
               "range": true,
               "refId": "A"
