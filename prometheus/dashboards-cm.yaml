@@ -872,11 +872,43 @@ data:
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "description": "only in \"new\" event-reporter",
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "thresholds"
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
               },
               "mappings": [],
               "thresholds": {
@@ -891,7 +923,8 @@ data:
                     "value": 80
                   }
                 ]
-              }
+              },
+              "unit": "bytes"
             },
             "overrides": []
           },
@@ -901,38 +934,45 @@ data:
             "x": 12,
             "y": 32
           },
-          "id": 4,
+          "id": 12,
           "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
             },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "pluginVersion": "12.1.0",
           "targets": [
             {
               "editorMode": "code",
-              "exemplar": false,
-              "expr": "sum(codefresh_event_reporter_workqueue_adds_total) by (pod)",
-              "instant": true,
-              "legendFormat": "__auto",
-              "range": false,
+              "expr": "sum(go_memstats_alloc_bytes {container=\"event-reporter\"}) by(service)",
+              "legendFormat": "memstats_alloc_bytes",
+              "range": true,
               "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "editorMode": "code",
+              "expr": "sum(go_memstats_heap_sys_bytes {container=\"event-reporter\"}) by(service)",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "memstats_heap_sys_bytes",
+              "range": true,
+              "refId": "B"
             }
           ],
-          "title": "adds",
-          "type": "stat"
+          "title": "memory",
+          "type": "timeseries"
         },
         {
           "datasource": {
@@ -1022,142 +1062,9 @@ data:
               "legendFormat": "goroutines",
               "range": true,
               "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "code",
-              "expr": "sum(go_sched_gomaxprocs_threads {container=\"event-reporter\"}) by (service)",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "GOMAXPROCS",
-              "range": true,
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "code",
-              "expr": "sum(go_threads {container=\"event-reporter\"}) by (service)",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "threads",
-              "range": true,
-              "refId": "C"
             }
           ],
           "title": "goroutines",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "barWidthFactor": 0.6,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": 0
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "bytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 40
-          },
-          "id": 12,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "hideZeros": false,
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "12.1.0",
-          "targets": [
-            {
-              "editorMode": "code",
-              "expr": "sum(go_memstats_alloc_bytes {container=\"event-reporter\"}) by(service)",
-              "legendFormat": "memstats_alloc_bytes",
-              "range": true,
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "code",
-              "expr": "sum(go_memstats_heap_sys_bytes {container=\"event-reporter\"}) by(service)",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "memstats_heap_sys_bytes",
-              "range": true,
-              "refId": "B"
-            }
-          ],
-          "title": "memory",
           "type": "timeseries"
         }
       ],
