@@ -10,6 +10,7 @@ data:
       "annotations": {
         "list": [
           {
+            "builtIn": 1,
             "datasource": {
               "type": "grafana",
               "uid": "-- Grafana --"
@@ -900,7 +901,7 @@ data:
               "sort": "none"
             },
             "xTickLabelRotation": 0,
-            "xTickLabelSpacing": 0
+            "xTickLabelSpacing": 100
           },
           "pluginVersion": "12.1.0",
           "targets": [
