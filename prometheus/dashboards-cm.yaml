@@ -10,7 +10,6 @@ data:
       "annotations": {
         "list": [
           {
-            "builtIn": 1,
             "datasource": {
               "type": "grafana",
               "uid": "-- Grafana --"
@@ -26,7 +25,7 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 2,
-      "id": 24,
+      "id": 3,
       "links": [],
       "panels": [
         {
@@ -1191,7 +1190,7 @@ data:
           "targets": [
             {
               "editorMode": "code",
-              "expr": "sum(go_goroutines {container=\"event-reporter\"}) by (pod)",
+              "expr": "sum(go_goroutines {container=\"event-reporter\"}) by (service)",
               "legendFormat": "goroutines",
               "range": true,
               "refId": "A"
@@ -1202,7 +1201,7 @@ data:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "sum(go_sched_gomaxprocs_threads {container=\"event-reporter\"}) by (pod)",
+              "expr": "sum(go_sched_gomaxprocs_threads {container=\"event-reporter\"}) by (service)",
               "hide": false,
               "instant": false,
               "legendFormat": "GOMAXPROCS",
@@ -1215,7 +1214,7 @@ data:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "sum(go_threads {container=\"event-reporter\"}) by (pod)",
+              "expr": "sum(go_threads {container=\"event-reporter\"}) by (service)",
               "hide": false,
               "instant": false,
               "legendFormat": "threads",
@@ -1311,7 +1310,7 @@ data:
           "targets": [
             {
               "editorMode": "code",
-              "expr": "sum(go_memstats_alloc_bytes {container=\"event-reporter\"}) by(pod)",
+              "expr": "sum(go_memstats_alloc_bytes {container=\"event-reporter\"}) by(service)",
               "legendFormat": "memstats_alloc_bytes",
               "range": true,
               "refId": "A"
@@ -1322,7 +1321,7 @@ data:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "sum(go_memstats_heap_sys_bytes {container=\"event-reporter\"}) by(pod)",
+              "expr": "sum(go_memstats_heap_sys_bytes {container=\"event-reporter\"}) by(service)",
               "hide": false,
               "instant": false,
               "legendFormat": "memstats_heap_sys_bytes",
@@ -1351,7 +1350,7 @@ data:
       "timezone": "browser",
       "title": "event-reporter",
       "uid": "977dfcfe-ed59-428e-9071-b4d321fff374",
-      "version": 5
+      "version": 1
     }
   argo-cd.json: |
     {
