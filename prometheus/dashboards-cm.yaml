@@ -5716,7 +5716,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(codefresh_event_reporter_workqueue_items_total{queue_name=~\"$workqueue\"}[1m])",
+              "expr": "rate(codefresh_event_reporter_workqueue_adds_total{queue_name=~\"$workqueue\"}[1m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{queue_name}}",
@@ -6058,7 +6058,7 @@ data:
             "multi": true,
             "name": "workqueue",
             "options": [],
-            "query": "label_values(codefresh_event_reporter_workqueue_items_total,queue_name)",
+            "query": "label_values(codefresh_event_reporter_workqueue_adds_total,queue_name)",
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
