@@ -5626,7 +5626,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "clamp_min(agones_k8s_client_workqueue_depth{queue_name=~\"$workqueue\"},0)",
+              "expr": "clamp_min(codefresh_event_reporter_workqueue_depth{queue_name=~\"$workqueue\"},0)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{queue_name}}",
@@ -5716,7 +5716,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(agones_k8s_client_workqueue_items_total{queue_name=~\"$workqueue\"}[1m])",
+              "expr": "rate(codefresh_event_reporter_workqueue_items_total{queue_name=~\"$workqueue\"}[1m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{queue_name}}",
@@ -5806,7 +5806,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(agones_k8s_client_workqueue_retries_total{queue_name=~\"$workqueue\"}[1m])",
+              "expr": "rate(codefresh_event_reporter_workqueue_retries_total{queue_name=~\"$workqueue\"}[1m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{queue_name}}",
@@ -5897,7 +5897,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(agones_k8s_client_workqueue_latency_seconds_sum{queue_name=~\"$workqueue\"}[1m]) / rate(agones_k8s_client_workqueue_latency_seconds_count{queue_name=~\"$workqueue\"}[1m])) by(queue_name)",
+              "expr": "sum(rate(codefresh_event_reporter_workqueue_latency_seconds_sum{queue_name=~\"$workqueue\"}[1m]) / rate(codefresh_event_reporter_workqueue_latency_seconds_count{queue_name=~\"$workqueue\"}[1m])) by(queue_name)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{queue_name}}",
@@ -5988,7 +5988,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(agones_k8s_client_workqueue_work_duration_seconds_sum{queue_name=~\"$workqueue\"}[1m]) / rate(agones_k8s_client_workqueue_work_duration_seconds_count{queue_name=~\"$workqueue\"}[1m])) by(queue_name)",
+              "expr": "sum(rate(codefresh_event_reporter_workqueue_work_duration_seconds_sum{queue_name=~\"$workqueue\"}[1m]) / rate(codefresh_event_reporter_workqueue_work_duration_seconds_count{queue_name=~\"$workqueue\"}[1m])) by(queue_name)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "{{queue_name}}",
@@ -6058,7 +6058,7 @@ data:
             "multi": true,
             "name": "workqueue",
             "options": [],
-            "query": "label_values(agones_k8s_client_workqueue_items_total,queue_name)",
+            "query": "label_values(codefresh_event_reporter_workqueue_items_total,queue_name)",
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
