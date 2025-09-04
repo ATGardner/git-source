@@ -1,23 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dummy-staging-4
+  name: dummy-production-4
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
     codefresh.io/product: dummy
   labels:
-    env: staging-internal
+    env: production-internal
 spec:
   project: default
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     # repoURL: https://github.com/ATGardner/applications.git
     targetRevision: main
-    path: dummy-apps/staging-4
+    path: dummy-apps/production-4
   destination:
-    name: kubernetes-admin-noam-ha
-    namespace: staging-4
+    name: daniel-maizel-sandbox2
+    namespace: production-4
   syncPolicy:
     automated:
       prune: true

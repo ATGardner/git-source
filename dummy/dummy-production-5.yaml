@@ -1,22 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dummy-staging-1
+  name: dummy-production-5
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
     codefresh.io/product: dummy
   labels:
-    env: staging
+    env: production-internal
 spec:
   project: default
   source:
     repoURL: https://github.com/ATGardner/git-source.git
+    # repoURL: https://github.com/ATGardner/applications.git
     targetRevision: main
-    path: dummy-apps/staging-1
+    path: dummy-apps/production-5
   destination:
     name: in-cluster
-    namespace: staging-1
+    namespace: production-5
   syncPolicy:
     automated:
       prune: true

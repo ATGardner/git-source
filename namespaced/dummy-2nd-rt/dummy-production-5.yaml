@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dummy-production-4
+  name: dummy-production-5
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
@@ -14,10 +14,10 @@ spec:
     repoURL: https://github.com/ATGardner/git-source.git
     # repoURL: https://github.com/ATGardner/applications.git
     targetRevision: main
-    path: dummy-apps/production-4
+    path: dummy-apps/production-5
   destination:
-    name: kubernetes-admin-noam-ha
-    namespace: production-4
+    name: daniel-maizel-sandbox2
+    namespace: production-5
   syncPolicy:
     automated:
       prune: true

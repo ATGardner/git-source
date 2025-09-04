@@ -1,22 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dummy-staging-1
+  name: dummy-qa
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
     codefresh.io/product: dummy
   labels:
-    env: staging
+    env: qa
 spec:
   project: default
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: main
-    path: dummy-apps/staging-1
+    path: dummy-apps/qa
   destination:
-    name: in-cluster
-    namespace: staging-1
+    name: daniel-maizel-kubecon
+    namespace: qa
   syncPolicy:
     automated:
       prune: true

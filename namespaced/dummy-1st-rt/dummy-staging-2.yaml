@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dummy-staging-1
+  name: dummy-staging-2
   finalizers:
   - resources-finalizer.argocd.argoproj.io/foreground
   annotations:
@@ -13,10 +13,10 @@ spec:
   source:
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: main
-    path: dummy-apps/staging-1
+    path: dummy-apps/staging-2
   destination:
-    name: in-cluster
-    namespace: staging-1
+    name: daniel-maizel-kubecon
+    namespace: staging-2
   syncPolicy:
     automated:
       prune: true
