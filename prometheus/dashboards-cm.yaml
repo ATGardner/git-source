@@ -1,4 +1,4 @@
-apiVersion: v1
+1apiVersion: v1
 kind: ConfigMap
 metadata:
   name: grafana-dashboards
@@ -1074,9 +1074,7 @@ data:
       "preload": false,
       "refresh": "",
       "schemaVersion": 41,
-      "tags": [
-        "gitops-runtime"
-      ],
+      "tags": [ "gitops-runtime" ],
       "templating": {
         "list": []
       },
@@ -6033,7 +6031,7 @@ data:
       ],
       "preload": false,
       "schemaVersion": 41,
-      "tags": [],
+      "tags": [ "gitops-runtime" ],
       "templating": {
         "list": [
           {
@@ -6586,7 +6584,8 @@ data:
       "tags": [
         "agones",
         "client-go",
-        "controller"
+        "controller",
+        "gitops-runtime"
       ],
       "templating": {
         "list": [
