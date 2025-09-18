@@ -6067,7 +6067,7 @@ data:
       },
       "timepicker": {},
       "timezone": "browser",
-      "title": "New dashboard",
+      "title": "ArgoCD kubectl",
       "uid": "31ba6c53-2b2f-45cb-b92a-08aa004c5c8c",
       "version": 2
     }
