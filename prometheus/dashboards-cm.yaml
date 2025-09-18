@@ -5610,7 +5610,8 @@ data:
             },
             "yAxis": {
               "axisPlacement": "left",
-              "reverse": false
+              "reverse": false,
+              "unit": "s"
             }
           },
           "pluginVersion": "12.1.1",
@@ -5691,7 +5692,8 @@ data:
             },
             "yAxis": {
               "axisPlacement": "left",
-              "reverse": false
+              "reverse": false,
+              "unit": "s"
             }
           },
           "pluginVersion": "12.1.1",
@@ -5766,7 +5768,8 @@ data:
             },
             "yAxis": {
               "axisPlacement": "left",
-              "reverse": false
+              "reverse": false,
+              "unit": "s"
             }
           },
           "pluginVersion": "12.1.1",
@@ -5841,7 +5844,8 @@ data:
             },
             "yAxis": {
               "axisPlacement": "left",
-              "reverse": false
+              "reverse": false,
+              "unit": "bytes"
             }
           },
           "pluginVersion": "12.1.1",
@@ -6011,7 +6015,8 @@ data:
             },
             "yAxis": {
               "axisPlacement": "left",
-              "reverse": false
+              "reverse": false,
+              "unit": "bytes"
             }
           },
           "pluginVersion": "12.1.1",
@@ -6031,7 +6036,9 @@ data:
       ],
       "preload": false,
       "schemaVersion": 41,
-      "tags": [ "gitops-runtime" ],
+      "tags": [
+        "gitops-runtime"
+      ],
       "templating": {
         "list": [
           {
@@ -6069,7 +6076,7 @@ data:
       "timezone": "browser",
       "title": "ArgoCD kubectl",
       "uid": "31ba6c53-2b2f-45cb-b92a-08aa004c5c8c",
-      "version": 2
+      "version": 3
     }
   workqueue.json: |
     {
