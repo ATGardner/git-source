@@ -5528,7 +5528,7 @@ data:
       "version": 2,
       "weekStart": ""
     }
-  argo-cd-kubectl: |
+  argo-cd-kubectl.json: |
     {
       "annotations": {
         "list": [
