@@ -5548,8 +5548,8 @@ data:
       },
       "editable": true,
       "fiscalYearStartMonth": 0,
-      "graphTooltip": 0,
-      "id": 27,
+      "graphTooltip": 2,
+      "id": 1,
       "links": [],
       "panels": [
         {
@@ -6034,7 +6034,7 @@ data:
           "type": "heatmap"
         }
       ],
-      "preload": false,
+      "preload": true,
       "schemaVersion": 41,
       "tags": [
         "gitops-runtime"
@@ -6076,7 +6076,7 @@ data:
       "timezone": "browser",
       "title": "ArgoCD kubectl",
       "uid": "31ba6c53-2b2f-45cb-b92a-08aa004c5c8c",
-      "version": 3
+      "version": 1
     }
   workqueue.json: |
     {
