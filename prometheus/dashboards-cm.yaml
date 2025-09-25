@@ -5933,7 +5933,7 @@ data:
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom",
+              "placement": "right",
               "showLegend": true
             },
             "tooltip": {
@@ -5947,9 +5947,9 @@ data:
             {
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sum(rate(argocd_kubectl_requests_total{host=~\"$host\"}[$__rate_interval])) by (method, code)",
+              "expr": "sum(rate(argocd_kubectl_requests_total{host=~\"$host\"}[$__rate_interval])) by (host)",
               "instant": false,
-              "legendFormat": "{{method}} ({{code}})",
+              "legendFormat": "{{host}}",
               "range": true,
               "refId": "A"
             }
