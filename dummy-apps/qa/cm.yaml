@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: dummy-qa-cm
 data:
-  version: "test-18"
+  version: "test-19"
