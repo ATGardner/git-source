@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: multi-1
+data:
+  version: "21"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: multi-2
+data:
+  version: "21"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: multi-3
+data:
+  version: "21"
