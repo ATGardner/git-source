@@ -18,4 +18,12 @@ spec:
   destination:
     name: in-cluster
     namespace: staging-6
-  syncPolicy: {}
+  syncPolicy:
+    syncOptions:
+    - PrunePropagationPolicy=foreground
+    - Replace=false
+    - PruneLast=false
+    - Validate=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=false
+
