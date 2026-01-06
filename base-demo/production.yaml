@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: base-app-scale-2
+  name: base-app-scale-production
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
   project: default
   destination:
-    name: in-cluster # kubernetes-admin-arena-12
-    namespace: scale-2
+    name: in-cluster
+    namespace: production
   source:
-    path: base-demo-app
+    path: base-demo-app/production
     repoURL: https://github.com/ATGardner/git-source.git
     targetRevision: main
   syncPolicy:
