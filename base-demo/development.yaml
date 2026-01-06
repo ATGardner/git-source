@@ -2,6 +2,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: base-app-scale-development
+  annotations:
+    argo.octopus.com/project: "my-proj"
+    argo.octopus.com/environment: "development"
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
