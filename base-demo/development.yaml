@@ -12,10 +12,13 @@ spec:
   destination:
     name: in-cluster
     namespace: development
-  source:
-    path: base-demo-app/development
-    repoURL: https://github.com/ATGardner/git-source.git
-    targetRevision: main
+  sources:
+    - repoURL: https://github.com/ATGardner/git-source.git
+      targetRevision: main
+      path: base-demo-app/development
+    - repoURL: https://github.com/ATGardner/git-source.git
+      targetRevision: main
+      path: base-demo-app/development-2
   syncPolicy:
     automated:
       prune: true
