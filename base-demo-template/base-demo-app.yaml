@@ -14,6 +14,7 @@ metadata:
 data:
   log_level: 'info'
   env: "#{Octopus.Environment.Name}"
+  release: "#{Octopus.Release.Number}"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -22,6 +23,7 @@ metadata:
 data:
   api_url: 'http://backend-service:8080'
   env: "#{Octopus.Environment.Name}"
+  release: "#{Octopus.Release.Number}"
 ---
 apiVersion: v1
 kind: ConfigMap
