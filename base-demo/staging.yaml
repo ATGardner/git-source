@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: base-app-scale-staging
   annotations:
-    argo.octopus.com/project: "my-proj"
+    argo.octopus.com/project: "asd"
     argo.octopus.com/environment: "staging"
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
