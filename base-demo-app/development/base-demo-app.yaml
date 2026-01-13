@@ -13,6 +13,7 @@ metadata:
   name: backend-config
 data:
   log_level: 'info'
+  env: "Development"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -20,6 +21,7 @@ metadata:
   name: frontend-config
 data:
   api_url: 'http://backend-service:8080'
+  env: "Development"
 ---
 apiVersion: v1
 kind: ConfigMap
