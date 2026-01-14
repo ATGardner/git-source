@@ -14,7 +14,7 @@ metadata:
 data:
   log_level: 'info'
   env: "Staging"
-  release: "0.0.6"
+  release: "0.0.7"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -23,7 +23,7 @@ metadata:
 data:
   api_url: 'http://backend-service:8080'
   env: "Staging"
-  release: "0.0.6"
+  release: "0.0.7"
 ---
 apiVersion: v1
 kind: ConfigMap
