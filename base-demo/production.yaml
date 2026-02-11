@@ -14,7 +14,7 @@ spec:
     namespace: production
   source:
     path: base-demo-app/production
-    repoURL: https://github.com/ATGardner/git-source.git
+    repoURL: https://github.com/ATGardner/applications.git
     targetRevision: main
   syncPolicy:
     automated:
